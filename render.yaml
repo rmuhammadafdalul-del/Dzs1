@@ -1,0 +1,34 @@
+services:
+  - type: worker
+    name: dzs-commission-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: GUILD_ID
+        sync: false
+      - key: ORDER_CATEGORY_ID
+        sync: false
+      - key: TICKET_SKIN_CATEGORY_ID
+        sync: false
+      - key: TICKET_ANIMASI_CATEGORY_ID
+        sync: false
+      - key: TICKET_LOGO_CATEGORY_ID
+        sync: false
+      - key: TICKET_RENDER_CATEGORY_ID
+        sync: false
+      - key: TESTIMONI_CHANNEL_ID
+        sync: false
+      - key: LOG_CHANNEL_ID
+        sync: false
+      - key: STAFF_ROLE_ID
+        sync: false
+      - key: DATA_DIR
+        value: /app/data
+    disk:
+      name: dzs-commission-data
+      mountPath: /app/data
+      sizeGB: 1
